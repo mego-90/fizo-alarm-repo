@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mego.fizoalarm.main.MainActivity">
+
+    <item
+        android:id="@+id/action_show_optional_reward_video"
+        android:orderInCategory="100"
+        android:title="@string/todays_ad"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_ondemand_video_24"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/action_show_digital_clock"
+        android:orderInCategory="150"
+        android:title="@string/night_clock"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_watch_24"/>
+
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="300"
+        android:title="@string/action_settings"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_baseline_tune_24"/>
+
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="999"
+        android:title="@string/about"
+        app:showAsAction="never"/>
+
+</menu>

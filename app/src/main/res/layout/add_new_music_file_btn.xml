@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.button.MaterialButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/add_new_file_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/add_new_file"
+    android:textColor="@color/colorPrimary"
+    app:icon="@drawable/ic_baseline_add_circle_24"
+    app:iconTint="@color/colorPrimary"
+    app:iconGravity="textStart"
+    style="@style/Widget.MaterialComponents.Button.OutlinedButton" />

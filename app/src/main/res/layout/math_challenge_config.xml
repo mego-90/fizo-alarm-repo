@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/math_difficulty_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/difficulty"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="16dp"
+        style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/difficulty_button_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/math_difficulty_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:singleSelection="true"
+        app:selectionRequired="true"
+        app:checkedButton="@id/normal_btn_in_group"
+        android:layout_margin="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/easy_btn_in_group"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/easy"
+            android:textSize="12sp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/normal_btn_in_group"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/normal"
+            android:textSize="12sp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hard_btn_in_group"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/hard"
+            android:textSize="12sp"/>
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+    <TextView
+        android:id="@+id/math_difficulty_example"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/difficulty_example_normal"
+        app:layout_constraintTop_toBottomOf="@id/difficulty_button_group"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="8dp"
+        style="@style/TextAppearance.MaterialComponents.Subtitle2"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        style="@style/Divider"
+        app:layout_constraintTop_toBottomOf="@id/math_difficulty_example"/>
+
+    <TextView
+        android:id="@+id/number_of_problems_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Number_of_problems"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+    <NumberPicker
+        android:id="@+id/number_of_problems_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/number_of_problems_header"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

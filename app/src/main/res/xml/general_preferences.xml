@@ -1,0 +1,38 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference
+        app:defaultValue="SUNDAY"
+        app:entries="@array/pref_days_list_labels"
+        app:entryValues="@array/pref_days_list_values"
+        app:key="first_day_of_week"
+        app:title="@string/first_day_of_week"
+        app:useSimpleSummaryProvider="true"
+        app:icon="@drawable/ic_baseline_today_24"/>
+
+    <SwitchPreference
+        android:key="always_use_built_in_speaker"
+        app:title="@string/always_use_built_in_speaker_title"
+        app:summaryOn="@string/always_use_built_in_speaker_summary_on"
+        app:summaryOff="@string/increase_sound_to_max_switch_summary_off"
+        app:icon="@drawable/ic_baseline_speaker_phone_24"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="increase_sound_volume_to_max"
+        app:title="@string/increase_sound_to_max_switch_title"
+        app:summaryOn="@string/increase_sound_to_max_switch_summary_on"
+        app:summaryOff="@string/increase_sound_to_max_switch_summary_off"
+        app:icon="@drawable/ic_baseline_volume_up_24"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="device_admin_enabled"
+        app:title="@string/device_admin_switch_title"
+        app:summaryOn="@string/device_admin_switch_summary_on"
+        app:summaryOff="@string/device_admin_switch_summary_off"
+        app:icon="@drawable/ic_baseline_block_24"
+        android:defaultValue="false" />
+
+
+</PreferenceScreen>

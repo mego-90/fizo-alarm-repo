@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/logo_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:strokeColor="@color/colorPrimaryDark"
+        app:strokeWidth="3dp"
+        />
+
+    <!--
+    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+     app:strokeColor="@color/colorPrimaryDark"
+    app:strokeWidth="3dp" -->
+
+    <TextView
+        android:id="@+id/about_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo_icon"
+        style="@style/TextAppearance.MaterialComponents.Headline3"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/version"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/about_app_name"
+        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_margin="16dp"/>
+    <TextView
+        android:id="@+id/version_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/version"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/version"
+        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/colorPrimaryDark"/>
+
+
+    <TextView
+        android:id="@+id/developed_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/developed_by"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/version"
+        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="32dp"/>
+    <TextView
+        android:id="@+id/mansour_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mansour"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/developed_by"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="@font/lobster_regular"
+        android:layout_marginBottom="32dp"
+        android:textStyle="italic"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/facebook_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/icon_facebook_50"
+        app:layout_constraintTop_toBottomOf="@id/mansour_text"
+        app:layout_constraintBottom_toTopOf="@id/privacy_policy_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/instagram_icon"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/instagram_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/icons_instagram_48"
+        app:layout_constraintTop_toBottomOf="@id/mansour_text"
+        app:layout_constraintBottom_toTopOf="@id/privacy_policy_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/facebook_icon"/>
+
+    <Button
+        android:id="@+id/privacy_policy_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:text="@string/privacy_policy"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@id/rate_app_btn"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/rate_app_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/ok_btn"
+        android:text="@string/rate_app"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/ok_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@android:string/ok"
+        android:backgroundTint="@color/colorPrimaryDark"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

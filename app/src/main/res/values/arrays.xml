@@ -1,0 +1,71 @@
+<resources>
+    <string-array name="pref_days_list_labels">
+        <item> @string/saturday </item>
+        <item> @string/sunday </item>
+        <item> @string/monday </item>
+    </string-array>
+
+    <string-array name="pref_days_list_values">
+        <item> SATURDAY </item>
+        <item> SUNDAY </item>
+        <item> MONDAY </item>
+    </string-array>
+
+    <string-array name="pref_alarm_timeout_labels">
+        <item> @string/_3_minutes </item>
+        <item> @string/_5_minutes </item>
+        <item> @string/_8_minutes </item>
+        <item> @string/_10_minutes </item>
+        <item> @string/_15_minutes </item>
+        <item> @string/_20_minutes </item>
+    </string-array>
+
+    <string-array name="pref_alarm_timeout_values">
+        <item> 3 </item>
+        <item> 5 </item>
+        <item> 8 </item>
+        <item> 10 </item>
+        <item> 15 </item>
+        <item> 20 </item>
+    </string-array>
+
+    <string-array name="pref_after_timeout_labels">
+        <item> @string/dismiss </item>
+        <item> @string/snooze </item>
+    </string-array>
+
+    <string-array name="pref_after_timeout_values">
+        <item> DISMISS </item>
+        <item> SNOOZE </item>
+    </string-array>
+
+    <string-array name="pref_allowed_snooze_times_labels">
+        <item> @string/allowed_snooze_1 </item>
+        <item> @string/allowed_snooze_2 </item>
+        <item> @string/allowed_snooze_3 </item>
+        <item> @string/allowed_snooze_4 </item>
+        <item> @string/allowed_snooze_5 </item>
+    </string-array>
+
+    <string-array name="pref_allowed_snooze_times_values">
+        <item> 1 </item>
+        <item> 2 </item>
+        <item> 3 </item>
+        <item> 4 </item>
+        <item> 5 </item>
+    </string-array>
+
+    <string-array name="pref_flash_light_timeout_labels">
+        <item> @string/_30_sec </item>
+        <item> @string/_45_sec </item>
+        <item> @string/_60_sec </item>
+    </string-array>
+
+    <string-array name="pref_flash_light_timeout_values">
+        <item> 30 </item>
+        <item> 45 </item>
+        <item> 60 </item>
+    </string-array>
+
+
+</resources>

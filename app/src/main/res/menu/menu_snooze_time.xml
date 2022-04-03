@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_item_snooze_off"
+        android:title="@string/off" />
+    <item
+        android:id="@+id/menu_item_snooze_3"
+        android:title="@string/_3_minutes" />
+    <item
+        android:id="@+id/menu_item_snooze_5"
+        android:title="@string/_5_minutes" />
+    <item
+        android:id="@+id/menu_item_snooze_8"
+        android:title="@string/_8_minutes" />
+    <item
+        android:id="@+id/menu_item_snooze_10"
+        android:title="@string/_10_minutes" />
+    <item
+        android:id="@+id/menu_item_snooze_15"
+        android:title="@string/_15_minutes" />
+    <item
+        android:id="@+id/menu_item_snooze_20"
+        android:title="@string/_20_minutes" />
+</menu>

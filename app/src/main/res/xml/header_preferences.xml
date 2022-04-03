@@ -1,0 +1,15 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        app:fragment="com.mego.fizoalarm.main.SettingsActivity$GeneralFragment"
+        app:icon="@drawable/ic_baseline_tune_24"
+        app:key="general_header"
+        app:title="@string/general_header" />
+
+    <Preference
+        app:fragment="com.mego.fizoalarm.main.SettingsActivity$AlarmSettingsFragment"
+        app:icon="@drawable/ic_baseline_alarm_24"
+        app:key="alarm_settings_header"
+        app:title="@string/alarm_settings_header" />
+
+</PreferenceScreen>

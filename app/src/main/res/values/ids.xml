@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ringtone_uri" type="id" />
+    <item name="dayOfWeek_in_chip" type="id" />
+    <item name="math_problem_result" type="id" />
+    <item name="recorded_voice_ringtone_data_type" type="id" />
+</resources>

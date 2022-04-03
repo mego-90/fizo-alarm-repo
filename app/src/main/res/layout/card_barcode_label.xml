@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp"
+        android:layout_margin="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true" >
+
+    <RadioButton
+        android:id="@+id/barcode_radio_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center_vertical"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        style="@style/TextAppearance.MaterialComponents.Subtitle1"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/barcode_delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_baseline_delete_forever_24"
+        android:layout_margin="8dp"
+        android:layout_gravity="end|center_vertical"
+        app:iconGravity="textStart"
+
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        app:iconPadding="0dp" />
+
+    </com.google.android.material.card.MaterialCardView>

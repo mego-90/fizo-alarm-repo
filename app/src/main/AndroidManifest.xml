@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mego.fizoalarm">
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:name=".startup.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="${appName}"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".main.NightClockActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:excludeFromRecents="true"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".main.OnboardingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.BarcodeCameraActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name=".receivers.DismissOrSnoozeAlarmReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.mego.hellalarm.ringingService.ACTION_DISMISS_ALARM" />
+                <action android:name="com.mego.hellalarm.ringingService.ACTION_SNOOZE_ALARM" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".main.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".main.MainActivity" />
+
+        <receiver
+            android:name=".receivers.StartupReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".main.FireAlarmReceiver"
+            android:enabled="true" />
+        <receiver
+            android:name=".main.SnoozeNotificationReceiver"
+            android:enabled="true" />
+
+        <service
+            android:name=".main.RingingService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".main.RingingActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".main.MainActivity"
+            android:label="${appName}"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".receivers.AlarmDeviceAdmin"
+            android:permission="android.permission.BIND_DEVICE_ADMIN"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+
+            <!-- This is required this receiver to become device admin component. -->
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" />
+
+        <!-- Delay app measurement until MobileAds.initialize() is called. For EEA consent -->
+        <meta-data
+            android:name="com.google.android.gms.ads.DELAY_APP_MEASUREMENT_INIT"
+            android:value="true" />
+    </application>
+
+</manifest>

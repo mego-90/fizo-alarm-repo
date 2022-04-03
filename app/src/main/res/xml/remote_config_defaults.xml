@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+
+    <entry>
+        <key>last_stable_version_code</key>
+        <value>1</value>
+    </entry>
+
+    <entry>
+        <key>rewarded_video_expiration_in_days</key>
+        <value>1</value>
+    </entry>
+
+
+</defaultsMap>

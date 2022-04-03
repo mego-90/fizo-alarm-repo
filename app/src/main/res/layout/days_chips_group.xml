@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.ChipGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/days_chip_group"
+    app:singleLine="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:chipSpacingHorizontal="5dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="12dp" >
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_1st_day"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:text="wed"
+        android:textAlignment="center"
+        app:ensureMinTouchTargetSize="false"
+        app:textEndPadding="1dp"
+        app:textStartPadding="1dp"
+        android:clickable="false"
+        android:focusable="false"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_2nd_day"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="mon"
+        app:ensureMinTouchTargetSize="false"
+        app:textEndPadding="1dp"
+        app:textStartPadding="1dp"
+        android:clickable="false"
+        android:focusable="false"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_3rd_day"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="txt"
+        app:ensureMinTouchTargetSize="false"
+        app:textEndPadding="1dp"
+        app:textStartPadding="1dp"
+        android:clickable="false"
+        android:focusable="false"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_4th_day"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="txt"
+        app:ensureMinTouchTargetSize="false"
+        app:textEndPadding="1dp"
+        app:textStartPadding="1dp"
+        android:clickable="false"
+        android:focusable="false"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_5th_day"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="txt"
+        app:ensureMinTouchTargetSize="false"
+        app:textEndPadding="1dp"
+        app:textStartPadding="1dp"
+        android:clickable="false"
+        android:focusable="false"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_6th_day"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="txt"
+        app:ensureMinTouchTargetSize="false"
+        app:textEndPadding="1dp"
+        app:textStartPadding="1dp"
+        android:clickable="false"
+        android:focusable="false"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_7th_day"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="txt"
+        app:ensureMinTouchTargetSize="false"
+        app:textEndPadding="1dp"
+        app:textStartPadding="1dp"
+        android:clickable="false"
+        android:focusable="false"/>
+
+</com.google.android.material.chip.ChipGroup>

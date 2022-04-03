@@ -1,0 +1,48 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference
+        app:key="allowed_snooze_times"
+        app:title="@string/allowed_snooze_times"
+        app:defaultValue="3"
+        app:entries="@array/pref_allowed_snooze_times_labels"
+        app:entryValues="@array/pref_allowed_snooze_times_values"
+        app:useSimpleSummaryProvider="true"
+        app:icon="@drawable/ic_baseline_snooze_24"/>
+
+    <ListPreference
+        app:key="flash_light_timeout"
+        app:title="@string/flash_light_timeout"
+        app:defaultValue="30"
+        app:entries="@array/pref_flash_light_timeout_labels"
+        app:entryValues="@array/pref_flash_light_timeout_values"
+        app:useSimpleSummaryProvider="true"
+        app:icon="@drawable/ic_baseline_flash_on_24"/>
+
+    <SwitchPreference
+        app:key="auto_dismiss_or_snooze"
+        app:title="@string/auto_dismiss_or_snooze_title"
+        app:summaryOn="@string/auto_dismiss_or_snooze_summary_on"
+        app:summaryOff="@string/auto_dismiss_or_snooze_summary_off"
+        app:icon="@drawable/ic_baseline_timer_off_24"/>
+
+    <ListPreference
+        app:dependency="auto_dismiss_or_snooze"
+        app:key="alarm_time_out"
+        app:title="@string/alarm_timeout"
+        app:defaultValue="5"
+        app:entries="@array/pref_alarm_timeout_labels"
+        app:entryValues="@array/pref_alarm_timeout_values"
+        app:useSimpleSummaryProvider="true"
+        app:icon="@drawable/ic_baseline_timer_24"/>
+
+    <ListPreference
+        app:dependency="auto_dismiss_or_snooze"
+        app:key="after_timeout_event"
+        app:title="@string/after_alarm_timeout"
+        app:defaultValue="SNOOZE"
+        app:entries="@array/pref_after_timeout_labels"
+        app:entryValues="@array/pref_after_timeout_values"
+        app:useSimpleSummaryProvider="true"
+        app:icon="@drawable/ic_baseline_volume_off_24" />
+
+</PreferenceScreen>

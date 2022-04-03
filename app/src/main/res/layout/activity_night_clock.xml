@@ -1,0 +1,77 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context="com.mego.fizoalarm.main.NightClockActivity">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/battery_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_baseline_battery_full_24"/>
+    <TextView
+        android:id="@+id/battery_level_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/battery_image"
+        android:layout_margin="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:text="100%"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/current_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:fontFamily="@font/libre_baskerville_bold"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/forecast_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/battery_image"
+        app:layout_constraintStart_toEndOf="@id/current_date"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_baseline_wb_sunny_24"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/forecast_degree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/forecast_image"
+        android:layout_margin="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:text="32 c"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+
+    <TextClock
+        android:id="@+id/textClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/libre_baskerville_bold"
+        android:textSize="85sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

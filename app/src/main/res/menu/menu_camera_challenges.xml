@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_flash_on_off"
+        android:title="@string/flash_light"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_baseline_flash_on_white_24" />
+
+    <item
+        android:id="@+id/action_switch_camera"
+        android:title="@string/switch_camera"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_switch_camera_white_24"/>
+
+</menu>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_new_barcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_new_code"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="8dp"
+        app:icon="@drawable/ic_baseline_barcode_add_24"
+        app:iconGravity="textStart"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        app:layout_constraintTop_toBottomOf="@id/add_new_barcode"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TableLayout
+            android:id="@+id/barcodes_labels_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/alarmsListFragment">
+
+    <fragment
+        android:id="@+id/newEditAlarmFragment"
+        android:name="com.mego.fizoalarm.main.NewEditAlarmFragment"
+        android:label="@string/alarm_details"
+        tools:layout="@layout/fragment_new_edit_alarm">
+        <action
+            android:id="@+id/action_newAlarm_to_selectRingtone"
+            app:destination="@id/selectRingtoneFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <argument
+            android:name="Arg_Alarm_To_Edit"
+            android:defaultValue="@null"
+            app:argType="com.mego.fizoalarm.pojo.Alarm"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_newEditAlarmFragment_to_datePickerDialogFragment"
+            app:destination="@id/datePickerDialogFragment" />
+        <action
+            android:id="@+id/action_newEditAlarmFragment_to_mathChallengeConfigDialog"
+            app:destination="@id/mathChallengeConfigDialog" />
+        <action
+            android:id="@+id/action_newEditAlarmFragment_to_shakeChallengeConfigDialog"
+            app:destination="@id/shakeChallengeConfigDialog" />
+        <action
+            android:id="@+id/action_newEditAlarmFragment_to_barcodeChallengeConfigDialog"
+            app:destination="@id/barcodeChallengeConfigDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectRingtoneFragment"
+        android:name="com.mego.fizoalarm.main.SelectRingtoneFragment"
+        android:label="@string/fragment_select_ringtone_label"
+        tools:layout="@layout/fragment_select_ringtone">
+        <argument
+            android:name="Arg_Selected_Ringtone_Data"
+            app:argType="com.mego.fizoalarm.pojo.RingtoneData" />
+        <argument
+            android:name="Arg_Init_Sound_Volume"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/alarmsListFragment"
+        android:name="com.mego.fizoalarm.main.AlarmsListFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_alarms_list">
+        <action
+            android:id="@+id/action_alarmsListFragment_to_newEditAlarmFragment"
+            app:destination="@id/newEditAlarmFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <dialog
+        android:id="@+id/datePickerDialogFragment"
+        android:name="com.mego.fizoalarm.main.DatePickerDialogFragment"
+        android:label="DatePickerDialogFragment"
+        tools:layout="@layout/dialog_date_picker"/>
+    <dialog
+        android:id="@+id/mathChallengeConfigDialog"
+        android:name="com.mego.fizoalarm.main.MathChallengeConfigDialog"
+        android:label="MathChallengeConfigDialog" />
+    <dialog
+        android:id="@+id/shakeChallengeConfigDialog"
+        android:name="com.mego.fizoalarm.main.ShakeChallengeConfigDialog"
+        android:label="shake_challenge_config"
+        tools:layout="@layout/shake_challenge_config" />
+    <dialog
+        android:id="@+id/barcodeChallengeConfigDialog"
+        android:name="com.mego.fizoalarm.main.BarcodeChallengeConfigDialog"
+        android:label="BarcodeChallengeConfigDialog" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.mego.fizoalarm.main.AboutFragment"
+        android:label="@string/about" />
+</navigation>

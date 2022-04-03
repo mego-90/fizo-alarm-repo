@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ec407a</color>
+    <color name="colorPrimaryLight">#ff77a9</color>
+    <color name="colorPrimaryDark">#b4004e</color>
+    <color name="colorAccent">#b4004e</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="dividerColor">#aaa</color>
+    <color name="selectedAlarm">@color/colorPrimaryLight</color>
+</resources>

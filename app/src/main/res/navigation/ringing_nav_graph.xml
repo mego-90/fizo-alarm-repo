@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ringing_nav_graph"
+    app:startDestination="@id/ringingFragment">
+
+    <fragment
+        android:id="@+id/ringingFragment"
+        android:name="com.mego.fizoalarm.main.RingingFragment"
+        android:label="fragment_ringing"
+        tools:layout="@layout/fragment_ringing" >
+        <action
+            android:id="@+id/action_ringingFragment_to_mathRingingFragment"
+            app:destination="@id/mathRingingFragment" />
+        <action
+            android:id="@+id/action_ringingFragment_to_shakeRingingFragment"
+            app:destination="@id/shakeRingingFragment" />
+        <action
+            android:id="@+id/action_ringingFragment_to_barcodeRingingFragment"
+            app:destination="@id/barcodeRingingFragment" />
+        <action
+            android:id="@+id/action_ringingFragment_to_smileRingingFragment"
+            app:destination="@id/smileRingingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mathRingingFragment"
+        android:name="com.mego.fizoalarm.main.MathRingingFragment"
+        android:label="fragment_math_ringing"
+        tools:layout="@layout/fragment_math_ringing" />
+    <fragment
+        android:id="@+id/shakeRingingFragment"
+        android:name="com.mego.fizoalarm.main.ShakeRingingFragment"
+        android:label="fragment_shake_ringing"
+        tools:layout="@layout/fragment_shake_ringing" />
+    <fragment
+        android:id="@+id/barcodeRingingFragment"
+        android:name="com.mego.fizoalarm.main.BarcodeRingingFragment"
+        android:label="BarcodeRingingFragment" />
+    <fragment
+        android:id="@+id/smileRingingFragment"
+        android:name="com.mego.fizoalarm.main.SmileRingingFragment"
+        android:label="SmileRingingFragment" />
+</navigation>
