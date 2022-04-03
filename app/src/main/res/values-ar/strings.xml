@@ -124,7 +124,7 @@
     <string name="difficulty_example_normal">مثال: (3 * 8) + 9 = ؟؟!</string>
     <string name="difficulty_example_hard">مثال: (3 * 8) + (7 * 4) = ؟؟!</string>
     <string name="open_challenge">فتح المهمة</string>
-    <string name="math_challenge_details_text">الصعوبة: %1$s, العمليات: %2$s</string>
+    <string name="math_challenge_details_text">الصعوبة: %1$s, العمليات: %2$d</string>
     <string name="barcode_challenge_details_text">باركود ل : %1$s</string>
     <string name="add_label_to_code_helper_text">باركود : %1$s</string>
     <string name="barcode_switch_camera_to_use_flash">بدل الكاميرا لاستخدام ضوء الفلاش</string>
