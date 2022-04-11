@@ -11,5 +11,9 @@
         <value>1</value>
     </entry>
 
+    <entry>
+        <key>days_to_ask_to_review</key>
+        <value>15</value>
+    </entry>
 
 </defaultsMap>

@@ -1,5 +1,7 @@
 package com.mego.fizoalarm.main;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.mego.fizoalarm.R;
 import com.mego.fizoalarm.databinding.ActivityOnboardingBinding;
@@ -32,6 +35,8 @@ public class OnboardingActivity extends AppCompatActivity {
 
     private ViewPager2.OnPageChangeCallback mViewPagerCallback;
     private List<Onboarding> mOnboardingItems = new ArrayList<>();
+
+    private ActivityResultLauncher<String> mRequestPhonePerm;
 
     public OnboardingActivity() {
     }
@@ -85,6 +90,14 @@ public class OnboardingActivity extends AppCompatActivity {
 
         binding.onboardingViewPager.registerOnPageChangeCallback(mViewPagerCallback);
 
+        mRequestPhonePerm = registerForActivityResult(new ActivityResultContracts.RequestPermission(),
+                isGranted -> {
+                    if (isGranted)
+                        binding.onboardingViewPager.setCurrentItem( binding.onboardingViewPager.getCurrentItem()+1 );
+                    else
+                        Toast.makeText(this, R.string.permission_phone_state_needed_description, Toast.LENGTH_LONG).show();;
+                });
+
     }
 
     private void markOnboardingAsShown() {
@@ -121,7 +134,8 @@ public class OnboardingActivity extends AppCompatActivity {
         int readPhoneStatePermissionRequest = checkSelfPermission( Manifest.permission.READ_PHONE_STATE );
 
         if (readPhoneStatePermissionRequest != PackageManager.PERMISSION_GRANTED)
-            requestPermissions(new String[]{ Manifest.permission.READ_PHONE_STATE },0);
+            //requestPermissions(new String[]{ Manifest.permission.READ_PHONE_STATE },0);
+            mRequestPhonePerm.launch(Manifest.permission.READ_PHONE_STATE);
         else
             new AlertDialog.Builder(this)
                     .setTitle(R.string.permission_granted)

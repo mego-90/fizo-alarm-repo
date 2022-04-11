@@ -4,29 +4,29 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.tasks.Task;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
+import com.mego.fizoalarm.BuildConfig;
+import com.mego.fizoalarm.databinding.FragmentAboutBinding;
+
 //import com.google.android.play.core.review.ReviewInfo;
 //import com.google.android.play.core.review.ReviewManager;
 //import com.google.android.play.core.review.ReviewManagerFactory;
 //import com.google.android.play.core.tasks.Task;
-import com.mego.fizoalarm.BuildConfig;
-import com.mego.fizoalarm.R;
-import com.mego.fizoalarm.databinding.FragmentAboutBinding;
-
-import java.util.List;
 
 public class AboutFragment extends Fragment {
 
@@ -35,9 +35,10 @@ public class AboutFragment extends Fragment {
     private final String PRIVACY_POLICY_URL = "https://docs.google.com/document/d/1PdqLA284Zm21eIA3IKrXjdHeefJGukMj/edit?usp=sharing&ouid=108306703144972047162&rtpof=true&sd=true";
 
     private FragmentAboutBinding binding;
-    //private ReviewManager manager;
-    //private ReviewInfo reviewInfo;
-    private Button rateAppBtn;
+
+    private ReviewManager manager;
+    private ReviewInfo reviewInfo;
+
 
 
     @Nullable
@@ -46,9 +47,7 @@ public class AboutFragment extends Fragment {
 
         binding = FragmentAboutBinding.inflate(inflater, container, false);
 
-        /*
-        rateAppBtn = view.findViewById(R.id.about_rate_app_btn);
-        rateAppBtn.setOnClickListener(new View.OnClickListener() {
+        binding.rateAppBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Task<Void> flow = manager.launchReviewFlow(requireActivity(), reviewInfo);
@@ -63,7 +62,6 @@ public class AboutFragment extends Fragment {
 
         requestReviewInfo();
 
-         */
 
         // OK Button
         binding.okBtn.setOnClickListener(new View.OnClickListener() {
@@ -179,7 +177,6 @@ public class AboutFragment extends Fragment {
 
 
 
-/*
     private void requestReviewInfo() {
         manager = ReviewManagerFactory.create(requireActivity());
         Task<ReviewInfo> request = manager.requestReviewFlow();
@@ -187,7 +184,7 @@ public class AboutFragment extends Fragment {
             if (task.isSuccessful()) {
                 // We can get the ReviewInfo object
                 reviewInfo = task.getResult();
-                rateAppBtn.setVisibility( View.VISIBLE );
+                binding.rateAppBtn.setVisibility( View.VISIBLE );
             } else {
                 // There was some problem, log or handle the error code.
                 if ( task.getException() != null )
@@ -195,7 +192,7 @@ public class AboutFragment extends Fragment {
             }
         });
     }
-*/
+
 
     @Override
     public void onDestroyView() {

@@ -209,10 +209,9 @@
     <string name="device_admin_disabled">App removed from device admins</string>
     <string name="device_admin_switch_summary_on">App added to device admins</string>
 
+    <string name="admob_app_id" translatable="false">ca-app-pub-8103928432341975~4450334562</string>
     <!--
     Ad Mob Added in Gradle
-
-    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
 
     <string name="admob_mandatory_rewarded_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
     <string name="admob_optional_rewarded_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>

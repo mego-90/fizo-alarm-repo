@@ -153,7 +153,7 @@
     <string name="device_admin_disabled">تم إزالة التطبيق من مديروا الجهاز</string>
     <string name="device_admin_enabled">تم إضافة التطبيق إلى مديروا الجهاز</string>
     <string name="device_admin_switch_summary_on">تم إضافة التطبيق إلى مديروا الجهاز</string>
-    <string name="app_name">منبه فيزو</string>
+    <string name="app_name">FizoAlarm</string>
     <string name="privacy_policy">سياسة الخصوصية</string>
     <string name="barcode_label">اسم المنتج</string>
 </resources>

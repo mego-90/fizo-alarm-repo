@@ -39,6 +39,7 @@ public class SettingsActivity extends AppCompatActivity implements
     public static final String SETTINGS_KEY_ALWAYS_USE_BUILT_IN_SPEAKER = "always_use_built_in_speaker";
     public static final String SETTINGS_KEY_ONBOARDING_DONE = "onboarding_done";
     public static final String SETTINGS_KEY_REWARDED_AD_EXPIRATION_DATE = "rewarded_ad_expiration_date";
+    public static final String SETTINGS_KEY_LAST_DATE_ASKED_TO_REVIEW = "last_date_asked_to_review";
 
 
     private static DevicePolicyManager devicePolicyManager;

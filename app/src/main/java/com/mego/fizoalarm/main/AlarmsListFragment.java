@@ -34,6 +34,12 @@ import com.google.android.gms.ads.OnUserEarnedRewardListener;
 import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.tasks.Task;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.mego.fizoalarm.R;
 import com.mego.fizoalarm.databinding.FragmentAlarmsListBinding;
 import com.mego.fizoalarm.pojo.Alarm;
@@ -42,6 +48,7 @@ import com.mego.fizoalarm.receivers.AlarmDeviceAdmin;
 import com.mego.fizoalarm.storage.AlarmsListStorage;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 
@@ -61,6 +68,9 @@ public class AlarmsListFragment extends Fragment {
 
     private static DevicePolicyManager devicePolicyManager;
     private static ComponentName alarmDeviceAdminComponent;
+
+    private ReviewManager manager;
+    private ReviewInfo reviewInfo;
 
     public AlarmsListFragment() { }
 
@@ -90,12 +100,14 @@ public class AlarmsListFragment extends Fragment {
 
                 int phoneStatePerm = requireActivity().checkSelfPermission(Manifest.permission.READ_PHONE_STATE);
                 //request only one each time
-                if ( phoneStatePerm == PackageManager.PERMISSION_DENIED )
-                    mRequestPhonePerm.launch(Manifest.permission.READ_PHONE_STATE);
-                else if ( !Settings.canDrawOverlays(requireActivity()) )
+                if ( !Settings.canDrawOverlays(requireActivity()) )
                     checkAndRequestOverlayPermission();
+                else if ( phoneStatePerm == PackageManager.PERMISSION_DENIED )
+                    mRequestPhonePerm.launch(Manifest.permission.READ_PHONE_STATE);
+                else if ( !devicePolicyManager.isAdminActive(alarmDeviceAdminComponent) )
+                    requestDeviceAdmin();
                 else
-                    checkAndRequestDeviceAdmin();
+                    requestReviewInfoAndLaunch();
             }
         });
 
@@ -202,25 +214,67 @@ public class AlarmsListFragment extends Fragment {
         }
     }
 
-    private void checkAndRequestDeviceAdmin() {
+    private void requestDeviceAdmin() {
 
-        if ( !devicePolicyManager.isAdminActive(alarmDeviceAdminComponent)) {
-            new MaterialAlertDialogBuilder(requireActivity())
-                    .setTitle(R.string.device_admin_dialog_title)
-                    .setMessage( getString(R.string.device_admin_dialog_message) )
-                    .setPositiveButton(R.string.device_admin_dialog_title, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
-                            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, alarmDeviceAdminComponent);//ComponentName of the administrator component.
+        //if ( !devicePolicyManager.isAdminActive(alarmDeviceAdminComponent)) {
+        new MaterialAlertDialogBuilder(requireActivity())
+                .setTitle(R.string.device_admin_dialog_title)
+                .setMessage( getString(R.string.device_admin_dialog_message) )
+                .setPositiveButton(R.string.device_admin_dialog_title, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+                        intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, alarmDeviceAdminComponent);//ComponentName of the administrator component.
 
-                            startActivity(intent);
-                        }
-                    })
-                    .setNegativeButton(R.string.no_thanks, null)
-                    .create()
-                    .show();
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton(R.string.no_thanks, null)
+                .create()
+                .show();
+        //}
+    }
+
+    private void requestReviewInfoAndLaunch() {
+
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MM-yyyy");
+        String lastDateAskedToReviewString = mSettingsPreference.getString(SettingsActivity.SETTINGS_KEY_LAST_DATE_ASKED_TO_REVIEW, "");
+
+        if ( lastDateAskedToReviewString.isEmpty() ) {
+            mSettingsPreference.edit()
+                    .putString(SettingsActivity.SETTINGS_KEY_LAST_DATE_ASKED_TO_REVIEW, formatter.format(LocalDate.now())).apply();
+            return;
         }
+
+        LocalDate lastDateAskedToReviewDate = LocalDate.parse(lastDateAskedToReviewString,formatter);
+        int daysToAskToReview = (int)FirebaseRemoteConfig.getInstance().getLong(RemoteConfigKeys.KEY_DAYS_TO_ASK_TO_REVIEW);
+
+        if ( lastDateAskedToReviewDate.plusDays(daysToAskToReview).isAfter(LocalDate.now()) )
+            return;
+
+        //start review
+        manager = ReviewManagerFactory.create(requireActivity());
+        Task<ReviewInfo> request = manager.requestReviewFlow();
+        request.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                // We can get the ReviewInfo object
+                reviewInfo = task.getResult();
+                Task<Void> flow = manager.launchReviewFlow(requireActivity(), reviewInfo);
+
+                mSettingsPreference.edit()
+                        .putString(SettingsActivity.SETTINGS_KEY_LAST_DATE_ASKED_TO_REVIEW, formatter.format(LocalDate.now())).apply();
+                //flow.addOnCompleteListener(task -> {
+                    // The flow has finished. The API does not indicate whether the user
+                    // reviewed or not, or even whether the review dialog was shown. Thus, no
+                    // matter the result, we continue our app flow.
+                //});
+            } else {
+                // There was some problem, log or handle the error code.
+                if ( task.getException() != null )
+                    FirebaseCrashlytics.getInstance().recordException( task.getException() );
+            }
+        });
     }
 
     @Override

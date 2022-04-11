@@ -116,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseRemoteConfig.fetchAndActivate();
 
         initOptionalRewardedAd();
-        if ( isRewardVideoDateExpired() )
-            initMandatoryRewardedAd();
+        //if ( isRewardVideoDateExpired() )
+        //    initMandatoryRewardedAd();
 
         initInterstitialAd();
         initBannerAd();
